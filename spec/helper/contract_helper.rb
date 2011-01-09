@@ -20,6 +20,20 @@ module Contractor
       Math.sqrt(a)
     end
 
+    postcondition do |a, result|
+      result.should > 0
+    end
+    def square(a)
+      a*a
+    end
+
+    postcondition do |a, result|
+      result.should > 0
+    end
+    def failing_square(a)
+      -5
+    end
+
   end
 
 end
