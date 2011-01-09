@@ -39,7 +39,8 @@ module Contractor
         @current_postconditions ||= []
         @already_processed ||= []
 
-        return if /^(check_precondition_for_|check_postcondition_for_|original_)/ =~ method or @already_processed.include?(method) or
+        return if /^(check_precondition_for_|check_postcondition_for_|original_)/ =~ method or
+          @already_processed.include?(method) or
           (@current_preconditions.empty? and @current_postconditions.empty?)
 
         @already_processed << method
@@ -92,8 +93,6 @@ module Contractor
       end
 
       def define_method_wrapper(method)
-        precondition_method = "check_precondition_for_#{method}"
-        postcondition_method = "check_postcondition_for_#{method}"
         class_eval do
           alias_method "original_#{method}".to_sym, method.to_sym
           define_method method do |*args|
