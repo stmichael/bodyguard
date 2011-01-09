@@ -12,5 +12,8 @@ describe "Contractor" do
     it "fails if the postcondition is invalid" do
       expect{@object.failing_square(5)}.to raise_error(Contractor::PostconditionViolation)
     end
+    it "should return the correct result" do
+      @object.square(5).should eql(25)
+    end
   end
 end

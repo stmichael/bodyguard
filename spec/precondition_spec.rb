@@ -12,5 +12,8 @@ describe "Contractor" do
     it "succeeds if the precondition is valid" do
       expect{@object.sqrt(1)}.to_not raise_error
     end
+    it "should return the correct result" do
+      @object.sqrt(25).should eql(5.0)
+    end
   end
 end
