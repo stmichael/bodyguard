@@ -75,6 +75,7 @@ module Contractor
         @current_preconditions << block
       end
     end
+    alias :pre :precondition
 
     def postcondition(&block)
       if block_given?
@@ -83,6 +84,7 @@ module Contractor
         @current_postconditions << block
       end
     end
+    alias :post :postcondition
 
     private
 

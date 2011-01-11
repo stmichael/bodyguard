@@ -5,8 +5,17 @@ describe "Contractor" do
     it "inherits from Contractor" do
       Class.ancestors.should include(Contractor::ContractDefinitions)
     end
-    it "has method precondition" do
+    it "has a method called precondition" do
       Class.respond_to?(:precondition).should be_true
+    end
+    it "has a method called pre" do
+      Class.respond_to?(:pre).should be_true
+    end
+    it "has a method called postcondition" do
+      Class.respond_to?(:postcondition).should be_true
+    end
+    it "has a method called post" do
+      Class.respond_to?(:post).should be_true
     end
   end
 
